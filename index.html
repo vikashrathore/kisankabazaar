@@ -6,7 +6,7 @@
     <title>KisanKaBazaar</title>
     
     <!-- PWA Meta Tags -->
-    <link rel="manifest" href="manifest-FRgI9rbi.json">
+    <link rel="manifest" href="/assets/manifest-FRgI9rbi.json">
     <meta name="theme-color" content="#128807" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,11 +15,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      /* Responsive Base Resets */
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+        -webkit-text-size-adjust: 100%;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-family: 'Poppins', sans-serif;
         background-color: #f8fafc;
         -webkit-tap-highlight-color: transparent;
       }
+
       /* Hide scrollbar for clean horizontal scrolling */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
@@ -28,6 +43,7 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
       .animate-fade-in {
         animation: fadeIn 0.3s ease-in-out;
       }
@@ -43,10 +59,13 @@
       }
       .animate-scroll {
         animation: scroll 30s linear infinite;
+        display: flex;
+        width: max-content;
       }
       .animate-scroll:hover {
         animation-play-state: paused;
       }
+
       .mask-linear-gradient {
         mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
@@ -59,6 +78,11 @@
       }
       .animate-voice-wave {
         animation: voice-wave 0.6s ease-in-out infinite;
+      }
+
+      /* Fix for iOS Safari Height */
+      .min-h-screen {
+        min-height: 100dvh;
       }
     </style>
 
@@ -85,7 +109,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="index-Ng77myMV.js"></script>
+  <script type="module" crossorigin src="/assets/index-CABC1A_y.js"></script>
 </head>
   <body>
     <div id="root"></div>
