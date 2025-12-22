@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en" style="width: 100%; overflow-x: hidden;">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
@@ -11,76 +10,70 @@
     <meta name="theme-color" content="#128807" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="KisanKaBazaar" />
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      /* ARCHITECTURAL MOBILE RESET - FINAL ATTEMPT */
-      *, *::before, *::after {
+      /* THE MOBILE-LOCK RESET */
+      * {
         box-sizing: border-box !important;
-        max-width: 100%;
+        max-width: 100vw; /* Prevent any element from leaking width */
+        -webkit-tap-highlight-color: transparent;
       }
 
-      html {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        -webkit-text-size-adjust: 100%;
-        touch-action: pan-y pinch-zoom;
-      }
-
-      body {
+      html, body {
         margin: 0;
         padding: 0;
-        width: 100% !important;
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        overflow-x: hidden !important; /* Fallback */
+        overflow-x: clip !important;   /* Modern strict containment */
         position: relative;
-        height: 100%;
+        -webkit-text-size-adjust: 100%;
+        touch-action: pan-y pinch-zoom;
         background-color: #f8fafc;
+        height: auto;
+        min-height: 100%;
       }
       
       #root {
         width: 100% !important;
         max-width: 100vw !important;
+        min-height: 100vh;
         min-height: 100dvh;
         display: flex;
         flex-direction: column;
         overflow-x: hidden !important;
+        overflow-x: clip !important;
       }
 
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-      /* Ticker Isolation Fix */
+      /* Ticker Isolation: Absolute positioning prevents 'max-content' from affecting layout width */
       @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-50%, 0, 0); }
       }
       .animate-scroll {
-        animation: scroll 40s linear infinite;
+        animation: scroll 45s linear infinite;
         display: flex;
         width: max-content;
         will-change: transform;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        align-items: center;
       }
 
       @keyframes voice-wave {
         0%, 100% { height: 20%; opacity: 0.5; }
         50% { height: 100%; opacity: 1; }
       }
-      .animate-voice-wave {
-        animation: voice-wave 0.6s ease-in-out infinite;
-      }
+      .animate-voice-wave { animation: voice-wave 0.6s ease-in-out infinite; }
 
-      .pb-safe {
-        padding-bottom: env(safe-area-inset-bottom, 12px);
-      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 12px); }
     </style>
 
 <link rel="stylesheet" href="/index.css">
@@ -96,17 +89,17 @@
     "path": "https://esm.sh/path@^0.12.7",
     "vite": "https://esm.sh/vite@^7.3.0",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "dotenv": "https://esm.sh/dotenv@^17.2.3",
+    "express": "https://esm.sh/express@^5.2.1",
     "cors": "https://esm.sh/cors@^2.8.5",
+    "dotenv": "https://esm.sh/dotenv@^17.2.3",
     "helmet": "https://esm.sh/helmet@^8.1.0",
     "morgan": "https://esm.sh/morgan@^1.10.1",
-    "express": "https://esm.sh/express@^5.2.1",
     "mongoose": "https://esm.sh/mongoose@^9.0.2",
     "fs": "https://esm.sh/fs@^0.0.1-security"
   }
 }
 </script>
-  <script type="module" crossorigin src="index-Bvz9kcvU.js"></script>
+  <script type="module" crossorigin src="index-H2CENUof.js"></script>
 </head>
   <body>
     <div id="root"></div>
