@@ -16,15 +16,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      :root {
-        --app-height: 100%;
+      /* CRITICAL MOBILE RESET - LEAD TESTER APPROVED */
+      *, *::before, *::after {
+        box-sizing: border-box;
       }
-      
+
       html, body {
         margin: 0;
         padding: 0;
-        width: 100%;
-        overflow-x: clip; /* Modern alternative to hidden that prevents width leaks */
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
         position: relative;
         -webkit-text-size-adjust: 100%;
         touch-action: pan-y pinch-zoom;
@@ -33,16 +35,13 @@
       }
       
       #root {
-        width: 100%;
+        width: 100% !important;
+        max-width: 100vw !important;
         min-height: 100vh;
+        min-height: 100dvh;
         display: flex;
         flex-direction: column;
-      }
-
-      /* Prevent horizontal overflow on any specific element */
-      .no-horizontal-scroll {
-        max-width: 100%;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
       }
 
       .no-scrollbar::-webkit-scrollbar {
@@ -53,20 +52,16 @@
         scrollbar-width: none;
       }
 
-      /* Ticker Animation */
+      /* Isolated Ticker Animation */
       @keyframes scroll {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
       }
       .animate-scroll {
-        animation: scroll 30s linear infinite;
+        animation: scroll 35s linear infinite;
         display: flex;
         width: max-content;
-      }
-
-      .mask-linear-gradient {
-        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        will-change: transform;
       }
 
       @keyframes voice-wave {
@@ -77,14 +72,9 @@
         animation: voice-wave 0.6s ease-in-out infinite;
       }
 
-      /* Fix for iOS Safari specific height bugs */
-      .min-h-screen {
-        min-height: 100dvh;
-      }
-
-      /* Safe area padding for mobile nav */
+      /* Fix for iOS bottom bar */
       .pb-safe {
-        padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom, 12px);
       }
     </style>
 
@@ -111,16 +101,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="index-CX8gu-vn.js"></script>
+  <script type="module" crossorigin src="index-BhZBN5vF.js"></script>
 </head>
   <body>
     <div id="root"></div>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed', err));
-      });
-    }
-  </script>
 </body>
 </html>
