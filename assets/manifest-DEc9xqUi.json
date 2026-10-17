@@ -1,0 +1,38 @@
+{
+  "name": "Kisan Rentals",
+  "short_name": "Rentals",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#128807",
+  "description": "Find and list farm equipment for rental in your area.",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/427/427112.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/427/427112.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/427/427112.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["business", "agriculture"],
+  "shortcuts": [
+    {
+      "name": "Browse equipment",
+      "url": "./",
+      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/427/427112.png", "sizes": "192x192" }]
+    }
+  ]
+}
